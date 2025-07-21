@@ -1,0 +1,53 @@
+{
+  "name": "modular-credential-nfts-academy",
+  "version": "1.0.0",
+  "description": "A blockchain-first learning platform issuing course modules as SIP-009 NFTs on Stacks",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "dev": "npm run dev --workspaces",
+    "lint": "npm run lint --workspaces",
+    "clean": "npm run clean --workspaces",
+    "build:contracts": "npm run build --workspace=packages/contracts",
+    "build:web": "npm run build --workspace=packages/web",
+    "build:subgraph": "npm run build --workspace=packages/subgraph",
+    "test:contracts": "npm run test --workspace=packages/contracts",
+    "test:web": "npm run test --workspace=packages/web",
+    "test:e2e": "npm run test:e2e --workspace=packages/web",
+    "dev:web": "npm run dev --workspace=packages/web",
+    "deploy:testnet": "npm run deploy:testnet --workspace=packages/contracts",
+    "deploy:mainnet": "npm run deploy:mainnet --workspace=packages/contracts",
+    "deploy:web": "npm run deploy --workspace=packages/web",
+    "deploy:subgraph": "npm run deploy --workspace=packages/subgraph"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "prettier": "^3.0.0",
+    "eslint": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/modular-credential-nfts-academy.git"
+  },
+  "keywords": [
+    "blockchain",
+    "nft",
+    "education",
+    "stacks",
+    "clarity",
+    "sip-009",
+    "credentials",
+    "soulbound-tokens"
+  ],
+  "author": "Modular NFT Academy Team",
+  "license": "MIT"
+}

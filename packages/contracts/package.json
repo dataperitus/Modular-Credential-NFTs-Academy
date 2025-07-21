@@ -1,0 +1,24 @@
+{
+  "name": "@modular-nft-academy/contracts",
+  "version": "1.0.0",
+  "description": "Clarity smart contracts for modular credential NFTs",
+  "private": true,
+  "scripts": {
+    "build": "clarinet check",
+    "test": "clarinet test",
+    "deploy:testnet": "clarinet deploy --testnet",
+    "deploy:mainnet": "clarinet deploy --mainnet",
+    "console": "clarinet console",
+    "lint": "clarinet check"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  },
+  "keywords": [
+    "clarity",
+    "smart-contracts",
+    "stacks",
+    "nft",
+    "sip-009"
+  ]
+}

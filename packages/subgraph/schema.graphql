@@ -1,0 +1,50 @@
+type ModuleNFT @entity {
+  id: ID!
+  tokenId: BigInt!
+  moduleId: String!
+  moduleName: String!
+  owner: User!
+  completionDate: BigInt!
+  metadataUri: String
+  createdAt: BigInt!
+  updatedAt: BigInt!
+}
+
+type DegreeSBT @entity {
+  id: ID!
+  tokenId: BigInt!
+  recipient: User!
+  completionDate: BigInt!
+  modulesCompleted: BigInt!
+  degreeType: String!
+  createdAt: BigInt!
+}
+
+type User @entity {
+  id: ID! # wallet address
+  moduleNFTs: [ModuleNFT!]! @derivedFrom(field: "owner")
+  degreeSBT: DegreeSBT
+  totalModulesCompleted: BigInt!
+  isEligibleForDegree: Boolean!
+  createdAt: BigInt!
+  updatedAt: BigInt!
+}
+
+type Transfer @entity {
+  id: ID!
+  tokenId: BigInt!
+  from: User!
+  to: User!
+  blockHeight: BigInt!
+  transactionHash: String!
+  timestamp: BigInt!
+}
+
+type ModuleCompletion @entity {
+  id: ID!
+  user: User!
+  moduleNFT: ModuleNFT!
+  completionDate: BigInt!
+  blockHeight: BigInt!
+  transactionHash: String!
+}

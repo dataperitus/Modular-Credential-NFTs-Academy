@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  contracts:
+    name: Smart Contracts
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Clarinet
+      uses: hirosystems/clarinet-action@v1
+      with:
+        clarinet-version: "0.27.0"
+    
+    - name: Run contract tests
+      run: |
+        cd packages/contracts
+        clarinet check
+        clarinet test
+
+  frontend:
+    name: Frontend
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Type check
+      run: npm run type-check --workspace=packages/web
+    
+    - name: Lint
+      run: npm run lint --workspace=packages/web
+    
+    - name: Build
+      run: npm run build --workspace=packages/web
+    
+    - name: Test
+      run: npm run test --workspace=packages/web
+
+  subgraph:
+    name: Subgraph
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Generate types
+      run: npm run codegen --workspace=packages/subgraph
+    
+    - name: Build subgraph
+      run: npm run build --workspace=packages/subgraph

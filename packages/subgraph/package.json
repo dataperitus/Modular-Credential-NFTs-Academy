@@ -1,0 +1,29 @@
+{
+  "name": "@modular-nft-academy/subgraph",
+  "version": "1.0.0",
+  "description": "The Graph subgraph for indexing modular credential NFTs",
+  "private": true,
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ modular-nft-academy/subgraph",
+    "deploy:local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 modular-nft-academy/subgraph",
+    "create:local": "graph create --node http://localhost:8020/ modular-nft-academy/subgraph",
+    "remove:local": "graph remove --node http://localhost:8020/ modular-nft-academy/subgraph",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "^0.32.0",
+    "@graphprotocol/graph-ts": "^0.30.0"
+  },
+  "devDependencies": {
+    "matchstick-as": "^0.5.0"
+  },
+  "keywords": [
+    "subgraph",
+    "the-graph",
+    "indexing",
+    "stacks",
+    "nft"
+  ]
+}

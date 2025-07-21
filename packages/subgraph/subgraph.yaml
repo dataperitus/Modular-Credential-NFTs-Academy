@@ -1,0 +1,41 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: stacks
+    name: ModuleNFT
+    network: stacks-testnet
+    source:
+      address: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.module-nft"
+      startBlock: 1
+    mapping:
+      kind: stacks/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ModuleNFT
+        - User
+        - Transfer
+      eventHandlers:
+        - event: nft_mint_event
+          handler: handleNFTMint
+        - event: nft_transfer_event
+          handler: handleNFTTransfer
+      file: ./src/mapping.ts
+  - kind: stacks
+    name: DegreeSBT
+    network: stacks-testnet
+    source:
+      address: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.degree-sbt"
+      startBlock: 1
+    mapping:
+      kind: stacks/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - DegreeSBT
+        - User
+      eventHandlers:
+        - event: nft_mint_event
+          handler: handleDegreeMint
+      file: ./src/mapping.ts
