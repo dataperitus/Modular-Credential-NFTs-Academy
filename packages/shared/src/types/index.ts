@@ -15,6 +15,8 @@ export interface DegreeSBT {
   completionDate: number;
   modulesCompleted: number;
   degreeType: string;
+  stakeAmount: number;
+  rewardEarned: number;
 }
 
 export interface ModuleMetadata {
@@ -74,4 +76,41 @@ export interface NFTTransferEvent {
   to: string;
   blockHeight: number;
   txId: string;
+}
+
+// Staking-related types
+export interface StakeInfo {
+  amount: number;
+  stakeDate: number;
+  isActive: boolean;
+}
+
+export interface StakeEvent {
+  staker: string;
+  amount: number;
+  blockHeight: number;
+  txId: string;
+}
+
+export interface RewardCalculation {
+  baseReward: number;
+  bonusReward: number;
+  totalReward: number;
+  extraModules: number;
+}
+
+export interface EligibilityStatus {
+  modulesSufficient: boolean;
+  hasActiveStake: boolean;
+  modulesOwned: number;
+  alreadyHasDegree: boolean;
+  requiredModules: number;
+}
+
+// Enhanced contract configuration
+export interface EnhancedContractConfig extends ContractConfig {
+  minStakeAmount: number;
+  baseRewardAmount: number;
+  bonusRewardPerModule: number;
+  requiredModules: number;
 }
