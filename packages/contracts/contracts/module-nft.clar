@@ -31,7 +31,7 @@
 )
 
 (define-read-only (get-token-uri (token-id uint))
-  (ok (some (concat (var-get base-uri) (uint-to-ascii token-id))))
+  (ok (some (var-get base-uri)))
 )
 
 (define-read-only (get-owner (token-id uint))
@@ -68,14 +68,4 @@
   )
 )
 
-;; Helper function to convert uint to ascii
-(define-private (uint-to-ascii (value uint))
-  (if (is-eq value u0)
-    "0"
-    (unwrap-panic (as-max-len? (fold concat-digit (list value) "") u256))
-  )
-)
 
-(define-private (concat-digit (digit uint) (acc (string-ascii 256)))
-  (concat acc (unwrap-panic (element-at "0123456789" digit)))
-)
