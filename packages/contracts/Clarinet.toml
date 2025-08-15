@@ -20,6 +20,31 @@ path = "contracts/traits/nft-trait.clar"
 clarity_version = 2
 epoch = "2.4"
 
+[contracts.governance-token]
+path = "contracts/governance-token.clar"
+clarity_version = 2
+epoch = "2.4"
+
+[contracts.staking]
+path = "contracts/staking.clar"
+clarity_version = 2
+epoch = "2.4"
+
+[contracts.validation]
+path = "contracts/validation.clar"
+clarity_version = 2
+epoch = "2.4"
+
+[contracts.reputation]
+path = "contracts/reputation.clar"
+clarity_version = 2
+epoch = "2.4"
+
+[contracts.governance]
+path = "contracts/governance.clar"
+clarity_version = 2
+epoch = "2.4"
+
 [repl]
 costs_version = 2
 parser_version = 2
