@@ -58,11 +58,19 @@ export default function GovernancePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Governance Dashboard</h1>
-        <p className="mt-2 text-gray-600">
-          Participate in academy governance by voting on proposals and shaping the future of the platform.
-        </p>
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Governance Dashboard</h1>
+          <p className="mt-2 text-gray-600">
+            Participate in academy governance by voting on proposals and shaping the future of the platform.
+          </p>
+        </div>
+        <button
+          onClick={() => window.location.href = '/governance/create-proposal'}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition-colors"
+        >
+          Create Proposal
+        </button>
       </div>
 
       {/* Token Stats */}
