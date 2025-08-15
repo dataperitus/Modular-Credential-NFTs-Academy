@@ -17,6 +17,82 @@ export interface DegreeSBT {
   degreeType: string;
 }
 
+// Governance and Staking Types
+export interface GovernanceToken {
+  balance: string;
+  delegatedTo?: string;
+  votingPower: string;
+}
+
+export interface Stake {
+  id: number;
+  staker: string;
+  amount: string;
+  lockPeriod: number;
+  startBlock: number;
+  endBlock: number;
+  claimedRewards: string;
+  active: boolean;
+}
+
+export interface Validator {
+  address: string;
+  stakeId: number;
+  metadata: string;
+  registrationBlock: number;
+  totalValidations: number;
+  successfulValidations: number;
+  active: boolean;
+}
+
+export interface Validation {
+  id: number;
+  moduleId: number;
+  validators: string[];
+  scores: number[];
+  feedbacks: string[];
+  consensusReached: boolean;
+  finalScore: number;
+  creationBlock: number;
+  finalizationBlock?: number;
+  status: 'pending' | 'approved' | 'rejected' | 'disputed';
+}
+
+export interface Reputation {
+  score: number;
+  validationsCount: number;
+  successfulValidations: number;
+  accuracyRate: number;
+  lastUpdate: number;
+  rank: string;
+}
+
+export interface Proposal {
+  id: number;
+  proposer: string;
+  title: string;
+  description: string;
+  proposalType: 'parameter' | 'upgrade' | 'funding' | 'general';
+  votingStart: number;
+  votingEnd: number;
+  executionDelayEnd: number;
+  votesFor: string;
+  votesAgainst: string;
+  quorum: string;
+  executed: boolean;
+  cancelled: boolean;
+  metadataUri?: string;
+  status: 'pending' | 'active' | 'succeeded' | 'defeated' | 'executed' | 'cancelled';
+}
+
+export interface Vote {
+  proposalId: number;
+  voter: string;
+  support: boolean;
+  votingPower: string;
+  timestamp: number;
+}
+
 export interface ModuleMetadata {
   name: string;
   description: string;

@@ -28,6 +28,18 @@ export default function RootLayout({
                   <a href="/modules" className="text-gray-600 hover:text-gray-900">
                     Modules
                   </a>
+                  <a href="/governance" className="text-gray-600 hover:text-gray-900">
+                    Governance
+                  </a>
+                  <a href="/staking" className="text-gray-600 hover:text-gray-900">
+                    Staking
+                  </a>
+                  <a href="/validation" className="text-gray-600 hover:text-gray-900">
+                    Validation
+                  </a>
+                  <a href="/reputation" className="text-gray-600 hover:text-gray-900">
+                    Reputation
+                  </a>
                   <a href="/transcript" className="text-gray-600 hover:text-gray-900">
                     Transcript
                   </a>
